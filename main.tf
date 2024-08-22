@@ -45,11 +45,11 @@ module "autoscaling" {
   instance_type = var.instance_type
 }
 
-module "${var.environment.name}-blog_alb" {
+module "blog_alb" {
   source  = "terraform-aws-modules/alb/aws"
   version = "~> 6.0"
 
-  name = "blog-alb"
+  name = "${var.environment.name}-blog-alb"
 
   load_balancer_type = "application"
 
